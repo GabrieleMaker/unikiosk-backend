@@ -1,12 +1,12 @@
 import path from 'path';
 
 export default ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+  const client = env('DATABASE_CLIENT', 'postgres');
 
   const connections = {
     mysql: {
       connection: {
-        host: env('DATABASE_HOST', 'localhost'),
+        host: env('DATABASE_HOST', 'postgresql://postgres:UniKiosk2025!@db.yubfyzssptdsuqxmgbad.supabase.co:5432/postgres'),
         port: env.int('DATABASE_PORT', 3306),
         database: env('DATABASE_NAME', 'strapi'),
         user: env('DATABASE_USERNAME', 'strapi'),
