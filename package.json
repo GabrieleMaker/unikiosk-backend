@@ -1,5 +1,6 @@
 {
   "name": "unikiosk-backend",
+  "name": "backend",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -18,6 +19,9 @@
     "@strapi/plugin-cloud": "5.22.0",
     "@strapi/plugin-users-permissions": "5.22.0",
     "@strapi/strapi": "5.22.0",
+    "@strapi/plugin-cloud": "5.21.0",
+    "@strapi/plugin-users-permissions": "5.21.0",
+    "@strapi/strapi": "^5.21.0",
     "better-sqlite3": "11.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -37,5 +41,7 @@
   "strapi": {
     "uuid": "ddafb694-3f00-4f7b-88c4-6de88f91e0d6",
     "installId": "ae69f8ffcbef9959eba6da359f51e592ca71ed263ef16ee2952cb8f96081606f"
+    "uuid": "72258b2b-fdc1-48b2-b031-f67243c2c34b",
+    "installId": "d67193d198921d8315710ff1ba76803b5615102e18b147124c12c333f0d40bd6"
   }
 }
