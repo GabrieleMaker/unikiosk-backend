@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orari_delle_lezionis",
+  "info": {
+    "singularName": "orari-delle-lezioni",
+    "pluralName": "orari-delle-lezionis",
+    "displayName": "Orari delle lezioni"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "giorno": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Lunedì",
+        "Martedì",
+        "Mercoledì",
+        "Giovedì",
+        "Venerdì",
+        "Sabato"
+      ]
+    },
+    "corso": {
+      "type": "string",
+      "required": true
+    },
+    "codiceCorso": {
+      "type": "string"
+    },
+    "aula": {
+      "type": "string",
+      "required": true
+    },
+    "edificio": {
+      "type": "string"
+    },
+    "docente": {
+      "type": "string",
+      "required": true
+    },
+    "oraInizio": {
+      "type": "time",
+      "required": true,
+      "default": "09:00:00.000"
+    },
+    "oraFine": {
+      "type": "time",
+      "required": true,
+      "unique": false
+    },
+    "semestre": {
+      "type": "enumeration",
+      "enum": [
+        "I Semestre",
+        "II Semestre"
+      ]
+    },
+    "stato": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Pubblicato",
+        "Bozza"
+      ]
+    }
+  }
+}

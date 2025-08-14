@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "docentis",
+  "info": {
+    "singularName": "docenti",
+    "pluralName": "docentis",
+    "displayName": "Docenti"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "cognome": {
+      "type": "string",
+      "required": true
+    },
+    "emailIstituzionale": {
+      "type": "email",
+      "required": true
+    },
+    "dipartimento": {
+      "type": "string",
+      "required": true
+    },
+    "telefono": {
+      "type": "string",
+      "required": false
+    },
+    "ufficio": {
+      "type": "string"
+    },
+    "orarioDiRicevimento": {
+      "type": "text",
+      "default": "es. Martedi ore 14:30-15:30"
+    },
+    "biografia": {
+      "type": "text"
+    },
+    "fotoProfilo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "stato": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Attivo",
+      "enum": [
+        "Attivo",
+        "In congedo",
+        "Non pubblicato"
+      ]
+    }
+  }
+}

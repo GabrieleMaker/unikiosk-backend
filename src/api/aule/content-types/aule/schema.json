@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "aules",
+  "info": {
+    "singularName": "aule",
+    "pluralName": "aules",
+    "displayName": "Aule"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "codice": {
+      "type": "string"
+    },
+    "edificio": {
+      "type": "string"
+    },
+    "piano": {
+      "type": "integer",
+      "default": 1,
+      "max": 10
+    },
+    "descrizione": {
+      "type": "text",
+      "default": "(Tipo | Posti | Accessori)"
+    },
+    "stato": {
+      "type": "enumeration",
+      "default": "Attiva",
+      "enum": [
+        "Attiva",
+        "Disattiva"
+      ]
+    }
+  }
+}

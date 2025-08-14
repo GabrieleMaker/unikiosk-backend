@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servizis",
+  "info": {
+    "singularName": "servizi",
+    "pluralName": "servizis",
+    "displayName": "Servizi"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "icona": {
+      "type": "string"
+    },
+    "stato": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Attivo",
+      "enum": [
+        "Attivo",
+        "Non Pubblicato"
+      ]
+    },
+    "info_sedis": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::info-sedi.info-sedi",
+      "inversedBy": "servizis"
+    }
+  }
+}
