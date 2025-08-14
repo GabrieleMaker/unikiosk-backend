@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mappe_piantines",
+  "info": {
+    "singularName": "mappe-piantine",
+    "pluralName": "mappe-piantines",
+    "displayName": "Mappe/Piantine"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "edificio": {
+      "type": "string",
+      "required": true
+    },
+    "descrizione": {
+      "type": "text",
+      "default": "Piantina generale del Dipartimento di Informatica con aule, laboratori e uffici."
+    },
+    "piano": {
+      "type": "integer",
+      "default": 0,
+      "max": 10
+    },
+    "filePDF": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "stato": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Pubblicato",
+      "enum": [
+        "Pubblicato",
+        "Bozza"
+      ]
+    }
+  }
+}

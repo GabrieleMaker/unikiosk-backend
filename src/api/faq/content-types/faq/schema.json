@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faqs",
+  "info": {
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "FAQ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "domanda": {
+      "type": "string",
+      "required": true
+    },
+    "risposta": {
+      "type": "string",
+      "required": true
+    },
+    "categoria": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Esami",
+        "Lezioni",
+        "Professori",
+        "Servizi",
+        "Sicurezza"
+      ]
+    },
+    "lingua": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "IT",
+        "EN"
+      ]
+    },
+    "stato": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Pubblicato",
+        "Bozza"
+      ]
+    }
+  }
+}

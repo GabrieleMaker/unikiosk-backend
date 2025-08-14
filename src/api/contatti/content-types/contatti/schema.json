@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contattis",
+  "info": {
+    "singularName": "contatti",
+    "pluralName": "contattis",
+    "displayName": "Contatti"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nomeServizio": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Centralino Ateneo",
+      "enum": [
+        "Centralino Ateneo",
+        "Rettorato",
+        "Segreterie Studenti",
+        "CHIP",
+        "Scuola di Architettura e Design \"E. Vittoria\"",
+        "Scuola di Bioscienze e Medicina Veterinaria",
+        "Scuola di Scienze e Tecnologie",
+        "Scuola di Giurisprudenza",
+        "Scuola di Scienze del Farmaco e dei Prodotti della Salute"
+      ]
+    },
+    "ruolo": {
+      "type": "string"
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "orari": {
+      "type": "text",
+      "default": "Lun-Ven: 08:00-18:00, Sab: 08:00-13:00"
+    },
+    "edificio": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "enumeration",
+      "default": "Contatto",
+      "enum": [
+        "Contatto"
+      ]
+    },
+    "priorita": {
+      "type": "enumeration",
+      "default": "Media",
+      "enum": [
+        "Alta",
+        "Media",
+        "Bassa"
+      ]
+    },
+    "stato": {
+      "type": "enumeration",
+      "default": "Attivo",
+      "enum": [
+        "Attivo",
+        "Disattivo"
+      ]
+    }
+  }
+}
