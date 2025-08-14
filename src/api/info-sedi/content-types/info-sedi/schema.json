@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "info_sedis",
+  "info": {
+    "singularName": "info-sedi",
+    "pluralName": "info-sedis",
+    "displayName": "Info Sedi"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "indirizzo": {
+      "type": "string",
+      "required": true
+    },
+    "orarioDiApertura": {
+      "type": "text",
+      "required": false
+    },
+    "dipartimento": {
+      "type": "enumeration",
+      "enum": [
+        "Architettura",
+        "Scienze del Farmaco",
+        "Giurisprudenza",
+        "Bioscienze",
+        "Scienze e Tecnologie"
+      ]
+    },
+    "stato": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Attivo",
+      "enum": [
+        "Attivo",
+        "Disattivo"
+      ]
+    },
+    "servizis": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::servizi.servizi",
+      "mappedBy": "info_sedis"
+    }
+  }
+}
