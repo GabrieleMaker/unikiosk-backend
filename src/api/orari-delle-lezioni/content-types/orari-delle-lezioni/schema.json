@@ -12,19 +12,11 @@
   "pluginOptions": {},
   "attributes": {
     "giorno": {
-      "type": "enumeration",
-      "required": true,
+  "type": "enumeration",
+      "enum": ["lunedi", "martedi", "mercoledi", "giovedi", "venerdi", "sabato", "domenica"],
       "multiple": true,
-      "enum": [
-        "Lunedì",
-        "Martedì",
-        "Mercoledì",
-        "Giovedì",
-        "Venerdì",
-        "Sabato"
-	"Domenica"
-      ]
-    },
+      "required": true
+  },
     "corso": {
       "type": "string",
       "required": true

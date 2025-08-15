@@ -694,6 +694,7 @@ export interface ApiOrariDelleLezioniOrariDelleLezioni
         'Gioved\u00EC',
         'Venerd\u00EC',
         'Sabato',
+        'Domenica',
       ]
     > &
       Schema.Attribute.Required;
