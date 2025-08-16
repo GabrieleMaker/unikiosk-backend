@@ -477,7 +477,7 @@ export interface ApiContattiContatti extends Struct.CollectionTypeSchema {
         'Rettorato',
         'Segreterie Studenti',
         'CHIP',
-        'Scuola di Architettura e Design "E. Vittoria"',
+        'Scuola di Architettura e Design',
         'Scuola di Bioscienze e Medicina Veterinaria',
         'Scuola di Scienze e Tecnologie',
         'Scuola di Giurisprudenza',
@@ -684,15 +684,15 @@ export interface ApiOrariDelleLezioniOrariDelleLezioni
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    docente: Schema.Attribute.String & Schema.Attribute.Required;
+    docenti: Schema.Attribute.Relation<'oneToOne', 'api::docenti.docenti'>;
     edificio: Schema.Attribute.String;
     giorno: Schema.Attribute.Enumeration<
       [
-        'Luned\u00EC',
-        'Marted\u00EC',
-        'Mercoled\u00EC',
-        'Gioved\u00EC',
-        'Venerd\u00EC',
+        'Lunedi',
+        'Martedi',
+        'Mercoledi',
+        'Giovedi',
+        'Venerdi',
         'Sabato',
         'Domenica',
       ]
@@ -732,7 +732,7 @@ export interface ApiServiziServizi extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    icona: Schema.Attribute.String;
+    icona: Schema.Attribute.Media<'images'>;
     info_sedis: Schema.Attribute.Relation<
       'manyToMany',
       'api::info-sedi.info-sedi'

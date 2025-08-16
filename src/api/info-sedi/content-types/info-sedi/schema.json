@@ -33,6 +33,12 @@
         "Scienze e Tecnologie"
       ]
     },
+    "servizis": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::servizi.servizi",
+      "mappedBy": "info_sedis"
+    },
     "stato": {
       "type": "enumeration",
       "required": true,
@@ -41,12 +47,6 @@
         "Attivo",
         "Disattivo"
       ]
-    },
-    "servizis": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::servizi.servizi",
-      "mappedBy": "info_sedis"
     }
   }
 }

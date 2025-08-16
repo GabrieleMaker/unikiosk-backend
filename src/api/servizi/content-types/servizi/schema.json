@@ -15,8 +15,18 @@
       "type": "string",
       "required": true
     },
+    "info_sedis": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::info-sedi.info-sedi",
+      "inversedBy": "servizis"
+    },
     "icona": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "stato": {
       "type": "enumeration",
@@ -26,12 +36,6 @@
         "Attivo",
         "Non Pubblicato"
       ]
-    },
-    "info_sedis": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::info-sedi.info-sedi",
-      "inversedBy": "servizis"
     }
   }
 }

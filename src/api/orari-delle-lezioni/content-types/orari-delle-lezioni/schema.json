@@ -12,11 +12,18 @@
   "pluginOptions": {},
   "attributes": {
     "giorno": {
-  "type": "enumeration",
-      "enum": ["lunedi", "martedi", "mercoledi", "giovedi", "venerdi", "sabato", "domenica"],
-      "multiple": true,
-      "required": true
-  },
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Lunedi",
+        "Martedi",
+        "Mercoledi",
+        "Giovedi",
+        "Venerdi",
+        "Sabato",
+        "Domenica"
+      ]
+    },
     "corso": {
       "type": "string",
       "required": true
@@ -31,9 +38,10 @@
     "edificio": {
       "type": "string"
     },
-    "docente": {
-      "type": "string",
-      "required": true
+    "docenti": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::docenti.docenti"
     },
     "oraInizio": {
       "type": "time",
