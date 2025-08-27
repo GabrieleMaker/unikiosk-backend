@@ -11,11 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "cognome": {
+    "nome": {
       "type": "string",
       "required": true
     },
-    "nome": {
+    "cognome": {
       "type": "string",
       "required": true
     },

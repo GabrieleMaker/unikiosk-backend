@@ -449,6 +449,35 @@ export interface ApiAuleAule extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCallStatusCallStatus extends Struct.CollectionTypeSchema {
+  collectionName: 'call_statuses';
+  info: {
+    displayName: 'CallStatus';
+    pluralName: 'call-statuses';
+    singularName: 'call-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    callerId: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isBusy: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::call-status.call-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContattiContatti extends Struct.CollectionTypeSchema {
   collectionName: 'contattis';
   info: {
@@ -1265,6 +1294,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::aule.aule': ApiAuleAule;
+      'api::call-status.call-status': ApiCallStatusCallStatus;
       'api::contatti.contatti': ApiContattiContatti;
       'api::docenti.docenti': ApiDocentiDocenti;
       'api::faq.faq': ApiFaqFaq;

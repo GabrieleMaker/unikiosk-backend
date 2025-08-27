@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "call_statuses",
+  "info": {
+    "singularName": "call-status",
+    "pluralName": "call-statuses",
+    "displayName": "CallStatus"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isBusy": {
+      "type": "boolean",
+      "default": false
+    },
+    "callerId": {
+      "type": "string"
+    }
+  }
+}
