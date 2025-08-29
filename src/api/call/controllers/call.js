@@ -33,7 +33,8 @@ if (!admin.apps.length) {
 // --- FINE CONFIGURAZIONE ---
 
 module.exports = {
-  async start(ctx) {
+  async startCall(ctx) {
+    // La logica interna rimane la stessa
     const { callerId } = ctx.request.body;
 
     if (!callerId) {
