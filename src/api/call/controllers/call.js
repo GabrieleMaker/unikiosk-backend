@@ -5,19 +5,30 @@ const admin = require('firebase-admin');
 // --- CONFIGURAZIONE PER RENDER ---
 // Il file JSON con la chiave privata viene ora letto come una stringa
 // dalla variabile d'ambiente 'FIREBASE_SERVICE_ACCOUNT_JSON' e poi convertito in un oggetto JSON.
-try {
-  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+if (!admin.apps.length) {
+  try {
+    let serviceAccount;
+    if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+      // Metodo per la PRODUZIONE (Render)
+      // Legge la variabile d'ambiente, che è una stringa, e la converte in un oggetto JSON
+      serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+      console.info('Firebase Admin SDK: Initializing with environment variable.');
+    } else {
+      // Metodo per lo SVILUPPO LOCALE
+      // Cerca il file fisico nella cartella 'config'
+      serviceAccount = require('../../../config/firebase-service-account.json');
+      console.info('Firebase Admin SDK: Initializing with local file.');
+    }
 
-  // Inizializza Firebase Admin SDK solo se non è già stato fatto.
-  // Questo previene errori durante i "re-deploy" a caldo di Strapi.
-  if (!admin.apps.length) {
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
     });
-    console.log('Firebase Admin SDK initialized successfully.');
+    console.info('Firebase Admin SDK initialized successfully.');
+
+  } catch (error) {
+    // Se entrambi i metodi falliscono, mostra un errore critico
+    console.error('CRITICAL: Firebase Admin SDK initialization failed.', error.message);
   }
-} catch (error) {
-  console.error('CRITICAL: Failed to parse or initialize Firebase Admin SDK. Check FIREBASE_SERVICE_ACCOUNT_JSON environment variable.', error);
 }
 // --- FINE CONFIGURAZIONE ---
 
