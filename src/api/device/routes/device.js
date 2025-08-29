@@ -3,12 +3,11 @@
 module.exports = {
   routes: [
     {
-      method: 'POST',
-      path: '/register-device',
-      handler: 'device.register',
+      method: 'POST', // Specifica che accettiamo il metodo POST
+      path: '/register-device', // Il percorso della nostra API
+      handler: 'device.register', // La funzione nel controller da eseguire
       config: {
-        // Permetti l'accesso pubblico a questo endpoint
-        auth: false,
+        auth: false, // Non richiede autenticazione
       },
     },
   ],
