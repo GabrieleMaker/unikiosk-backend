@@ -1,19 +1,21 @@
 'use strict';
 
 /**
- * Controller personalizzato per la registrazione dei dispositivi.
+ * device controller
  */
 
-module.exports = {
+const { createCoreController } = require('@strapi/strapi').factories;
+
+module.exports = createCoreController('api::device.device', ({ strapi }) => ({
   /**
    * Gestisce la registrazione o l'aggiornamento di un dispositivo.
    * Cerca un dispositivo tramite deviceName. Se esiste, aggiorna il suo fcmToken.
    * Se non esiste, ne crea uno nuovo.
    * @param {object} ctx - Il contesto della richiesta di Koa/Strapi.
    */
-  async register(ctx) {
+  async registerDevice(ctx) {
     // 1. Estrai i dati dal corpo della richiesta inviata dall'app Android.
-    const { deviceName, fcmToken, deviceType } = ctx.request.body;
+    const { deviceName, fcmToken, deviceType } = ctx.request.body.data;
 
     // 2. Valida che tutti i campi necessari siano presenti.
     if (!deviceName || !fcmToken || !deviceType) {
@@ -28,7 +30,6 @@ module.exports = {
 
       if (existingDevice) {
         // 4a. Se il dispositivo esiste, aggiorna solo il suo fcmToken.
-        // Questo è utile se l'app viene reinstallata e Firebase genera un nuovo token.
         await strapi.entityService.update('api::device.device', existingDevice.id, {
           data: { fcmToken: fcmToken },
         });
@@ -53,4 +54,4 @@ module.exports = {
       return ctx.internalServerError('An error occurred during device registration.');
     }
   },
-};
+}));
