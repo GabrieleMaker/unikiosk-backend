@@ -449,6 +449,35 @@ export interface ApiAuleAule extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCallRequestCallRequest extends Struct.CollectionTypeSchema {
+  collectionName: 'call_requests';
+  info: {
+    displayName: 'CallRequest';
+    pluralName: 'call-requests';
+    singularName: 'call-request';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    callerInfo: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isRinging: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::call-request.call-request'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContattiContatti extends Struct.CollectionTypeSchema {
   collectionName: 'contattis';
   info: {
@@ -1295,6 +1324,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::aule.aule': ApiAuleAule;
+      'api::call-request.call-request': ApiCallRequestCallRequest;
       'api::contatti.contatti': ApiContattiContatti;
       'api::device.device': ApiDeviceDevice;
       'api::docenti.docenti': ApiDocentiDocenti;

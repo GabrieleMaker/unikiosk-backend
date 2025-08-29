@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "call_requests",
+  "info": {
+    "singularName": "call-request",
+    "pluralName": "call-requests",
+    "displayName": "CallRequest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "callerInfo": {
+      "type": "text"
+    },
+    "isRinging": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
